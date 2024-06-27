@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body onload="todayDate()">
+    <div class="container">
+      <h1>QR Code Generator</h1>
+      <div class="chose">
+        <div class="input-group">
+          <label for="qrSize">Choose QR Code dimensions:</label>
+          <select id="qrSize" class="sizes">
+            <option value="76">76×76</option>
+            <option value="100">100×100</option>
+            <option value="200">200×200</option>
+            <option value="240">240×240</option>
+            <option value="300" selected>300×300</option>
+            <option value="400">400×400</option>
+            <option value="500">500×500</option>
+            <option value="600">600×600</option>
+            <option value="700">700×700</option>
+            <option value="800">800×800</option>
+          </select>
+        </div>
+        <h4>Notes</h4>
+        <ul class="note">
+          <li>
+            For VCard QR codes, a minimum dimension of 300x300 is recommended
+            for better readability.
+          </li>
+          <li>
+            Ensure the QR code is printed at least 1 inch by 1 inch for optimal
+            scanning.
+          </li>
+          <li>Supports special and Cyrillic letters.</li>
+        </ul>
+        <div class="input-group">
+          <label for="lightColor">Choose a lighter color:</label>
+          <input type="color" id="lightColor" class="light" value="#ffffff" />
+        </div>
+        <div class="input-group">
+          <label for="darkColor">Choose a darker color:</label>
+          <input type="color" id="darkColor" class="dark" value="#000000" />
+        </div>
+      </div>
+
+      <div class="radio-buttons">
+        <label for="url">URL</label>
+        <input
+          type="radio"
+          id="url"
+          name="qrType"
+          value="URL"
+          checked
+          onclick="showFields('url')"
+        />
+        <label for="text">Text</label>
+        <input
+          type="radio"
+          id="text"
+          name="qrType"
+          value="Text"
+          onclick="showFields('text')"
+        />
+        <label for="vcard">VCard</label>
+        <input
+          type="radio"
+          id="vcard"
+          name="qrType"
+          value="VCard"
+          onclick="showFields('vcard')"
+        />
+      </div>
+
+      <div id="urlFields">
+        <input type="text" id="urlInput" placeholder="Enter URL" />
+      </div>
+
+      <div id="textFields">
+        <textarea id="textInput" placeholder="Enter text"></textarea>
+      </div>
+
+      <div id="vcardFields">
+        <input type="text" id="firstName" placeholder="First Name" />
+        <input type="text" id="lastName" placeholder="Last Name" />
+        <input type="text" id="mobile" placeholder="Mobile" />
+        <input type="text" id="phone" placeholder="Phone" />
+        <input type="text" id="fax" placeholder="Fax" />
+        <input type="email" id="email" placeholder="Email" />
+        <input type="text" id="company" placeholder="Company Name" />
+        <input type="text" id="jobPosition" placeholder="Job Position" />
+        <input type="text" id="street" placeholder="Street" />
+        <input type="text" id="zip" placeholder="ZIP Code" />
+        <input type="text" id="city" placeholder="City" />
+        <input type="text" id="state" placeholder="State" />
+        <input type="text" id="country" placeholder="Country" />
+        <input type="url" id="website" placeholder="Website" />
+      </div>
+
+      <button onclick="generateQRCode()">Generate QR Code</button>
+      <button id="clear" onclick="clearQRCode()">Clear</button>
+      <button onclick="copyPNG()">Copy .png</button>
+      <button onclick="downloadPNG()">Download .png</button>
+      <button onclick="shareQRCode()">Share</button>
+      <div id="qrcode"></div>
+      <div id="errorMessage"></div>
+      <p>
+        More detailed QR code generator you can find here:
+        <a href="https://www.qr-code-generator.com/" class="detailed"
+          >Detailed QR Code generator</a
+        >
+      </p>
+    </div>
+    <footer>
+      <div class="footer-content">
+        <p class="copy-text">&copy; <b id="date"></b> PONITECH</p>
+        <p class="email-text">
+          E-mail:
+          <a href="mailto:nikolap.itech@gmail.com" class="email-link"
+            >nikolap.itech@gmail.com</a
+          >
+        </p>
+        <div class="social-wrapper">
+          <ul class="social-links">
+            <li>
+              <a
+                href="https://github.com/NikolaPopovic71"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="GitHub"
+              >
+                <img src="images/github_line.svg" alt="GitHub" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://x.com/NikolaP_itech"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="X"
+              >
+                <img src="images/social_x_line.svg" alt="X" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

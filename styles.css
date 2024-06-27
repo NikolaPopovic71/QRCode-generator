@@ -1,0 +1,278 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px; /* base size for desktop */
+  font-weight: 600;
+  background-color: #7f5539;
+  color: #7f5539;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background: #e9f5db;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #e9f5db;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.9);
+}
+
+.chose {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  align-items: flex-start; /* Align children to the start */
+}
+
+.chose h4 {
+  margin-bottom: 0.1em;
+  margin-left: 1.6em;
+}
+
+.note {
+  list-style-type: square;
+  font-size: 0.8em;
+  text-align: left;
+  margin-top: 0;
+  padding-left: 3.1em; /* Match the h4 left margin */
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+}
+
+label {
+  text-align: center;
+}
+
+input[type="color"],
+select {
+  margin: 5px;
+}
+
+.light,
+.dark {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+.light::-webkit-color-swatch-wrapper,
+.dark::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 50%;
+}
+
+.light::-webkit-color-swatch,
+.dark::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
+.radio-buttons {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Styles for browsers that do support accent-color */
+@supports (accent-color: #718355) {
+  input[type="radio"] {
+    accent-color: #718355;
+  }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+textarea {
+  width: 100%;
+  max-width: 600px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#textFields,
+#vcardFields {
+  display: none;
+}
+
+#vcardFields input[type="text"],
+input[type="email"],
+input[type="url"] {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  margin: 2px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #718355;
+  color: #fff;
+  border: none;
+  font-size: 1em;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.9);
+  margin: 10px;
+}
+
+#clear {
+  background-color: #7f5539;
+  color: #fff;
+}
+
+#clear:hover {
+  background-color: #9c6644;
+}
+
+button:hover {
+  background-color: #87986a;
+}
+
+#qrcode {
+  width: 100%;
+  max-width: 800px; /* Ensures it doesn't exceed container width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto; /* Center the QR code */
+}
+
+#qrcode img {
+  width: 100%;
+  height: auto;
+  max-width: 50%; /* Ensures the image scales properly */
+}
+
+p {
+  width: 100%;
+  max-width: 800px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.detailed {
+  color: #9c6644; /* Sets the text color to white */
+  text-decoration: none; /* Removes the underline from the link */
+}
+
+.detailed:hover,
+.detailed:focus {
+  text-decoration: underline; /* Adds underline on hover for better usability */
+}
+
+#errorMessage {
+  color: red;
+  display: none;
+}
+
+footer {
+  width: 90%;
+  max-width: 800px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #718355;
+  color: #fff; /* Example background color */
+  border: 1px solid #718355;
+  border-radius: 10px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.footer-content > p,
+.footer-content > .social-wrapper {
+  flex: 1; /* Distributes space evenly */
+  text-align: center; /* Centers the content */
+  margin: 5px; /* Adds a little space around each section */
+}
+
+.email-link {
+  color: #fff; /* Sets the text color to white */
+  text-decoration: none; /* Removes the underline from the link */
+}
+
+.email-link:hover,
+.email-link:focus {
+  text-decoration: underline; /* Adds underline on hover for better usability */
+}
+
+.social-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.social-links li {
+  margin: 0 10px; /* Space between icons */
+}
+
+.social-links a {
+  display: block;
+}
+
+.social-links img {
+  width: 24px; /* Fixed size for social icons */
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  .footer-content {
+    flex-direction: column; /* Stacks the content vertically on small screens */
+  }
+
+  .social-links {
+    margin-top: 10px; /* Adds space between email and social links on small screens */
+  }
+
+  p {
+    font-size: 0.9em;
+    margin: 5px 0;
+  }
+
+  #qrcode {
+    max-width: 100%;
+  }
+}
